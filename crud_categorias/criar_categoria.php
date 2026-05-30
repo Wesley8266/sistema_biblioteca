@@ -13,11 +13,10 @@ require "../auth.php";
 
 </head>
 <body class="flex flex-col justify-content items-center bg-[#1E1814]">
-    <form action="processamento.php" method="post" class="flex flex-col items-center justify-center gap-5 bg-[#1E1814] border border-[#3D2B1F] rounded-3xl m-20 p-10 shadow-2xl w-[600px] h-[400px] space-y-6">
+    <form action="processamento.php" method="post" class="flex flex-col items-center justify-center gap-5 bg-[#1a1311] border border-[#3D2B1F] rounded-3xl m-20 p-10 shadow-2xl w-[600px] h-[400px] space-y-6">
             <div class="flex flex-col items-center">
-                <img class="w-[40px] h-[40px]" src="../imagens/adicionar.png">
+                <img class="w-[40px] h-[40px] bg-[#A67C00] p-2 rounded-full" src="../imagens/adicionar.png">
                 <h1 class="text-3xl text-center font-bold text-white ">CRIAR CATEGORIA</h1>
-                
             </div>
 
         <div class="space-y-2">
@@ -27,29 +26,26 @@ require "../auth.php";
                     <img class="w-5 h-5" src="../imagens/tag.png">
                 </span>
 
-                <input type="text" name="categoria" placeholder="Ficção,Romance, Terror..." class="bg-[#0B0C10] border-2 border-[#3D2B1F] focus:outline-none focus:border-[#A67C00] transition-all text-white rounded-3xl p-4 w-[500px] pl-11" required >
+                <input type="text" name="categoria" placeholder="Ficção,Romance, Terror..." class="bg-[#1E1814] border-2 border-[#3D2B1F] focus:outline-none focus:border-[#A67C00] transition-all text-white rounded-3xl p-4 w-[500px] pl-11" required >
             </div>
         </div>
 
-        <div class="gap-[40px]">
-            <div class="flex flex-row justify-content items-center gap-5">
-                <button type="submit" class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#A67C00] hover:bg-[#8A6600] hover p-3 w-[500px]">
-                    <span>Salvar</span>
-                    <img class="w-6" src="../imagens/salvar.png">
-                </button>
+  
+                <div class="flex flex-col justify-content items-center gap-5">
+                    <button type="submit" class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#A67C00] hover:bg-[#8A6600] hover p-3 w-[500px]">
+                        <span>Salvar</span>
+                        <img class="w-6" src="../imagens/salvar.png">
+                    </button>
+
+                    <div class="flex flex-row justify-content items-center gap-5">
+                    <a href="categorias.php" class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#4A0E0E] p-3 w-[500px] hover:bg-[#370A0A]">
+                        <!-- <button class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#4A0E0E] p-3 w-[500px] hover:bg-[#370A0A]"> -->
+                            <span>voltar</span>
+                            <img class="w-5 ml-2" src="../imagens/voltar.png">
+                        <!-- </button> -->
+                    </a>
+                </div>
             </div>
-
-            <div class="flex flex-row justify-content items-center gap-5">
-            <a href="categorias.php" class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#4A0E0E] p-3 w-[500px] hover:bg-[#370A0A]">
-                <!-- <button class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#4A0E0E] p-3 w-[500px] hover:bg-[#370A0A]"> -->
-                    <span>voltar</span>
-                    <img class="w-5 ml-2" src="../imagens/voltar.png">
-                <!-- </button> -->
-            </a>
-        </div>
-
     </form>
-
-   
 </body>
 </html>

@@ -4,107 +4,162 @@ require "../auth.php";
 
 $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Categorias</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-    
+
 <body class="bg-[#2D241E] antialiased">
-
     <div class="flex min-h-screen">
-        
-        <aside class="w-64 bg-[#1E1814] text-white flex-shrink-0 shadow-xl border-r border-[#4A3B31]">
-            <div class="p-6 text-2xl font-bold text-center border-b border-slate-700">
-                <span class="text-[#c9a84c]">Biblioteca</span> <span class="text-[#A67C00]">Nexus</span>
-            </div>
-            <nav class="mt-6 px-4">
-                <ul class="space-y-2">
-                    <li>
-                        <div class="flex flex-row">
-                            <a href="categorias.php">
-                                <button class="block p-3 rounded-lg bg-[#A67C00] font-semibold flex items-center justify-start flex-row w-[200px] gap-2">
-                                    <img class="w-6" src="../imagens/categorias.png">
-                                    <span>Categorias</span>
-                                </button>
-                            </a>
 
-                    </li>
-                    <li>
-                        <div class="flex flex-row">
-                            <a href="../crud_alunos/alunos.php">
-                                <button class="block p-3 rounded-lg font-semibold flex items-center justify-start flex-row w-[200px] gap-2 hover:bg-gray-700">
-                                    <img class="w-6" src="../imagens/alunos.png">
-                                    <span>Alunos</span>
-                                </button>
-                            </a>
-                    </li>
-                    <li>
-                        <div class="flex flex-row">
-                            <a href="../crud_livros/livros.php">
-                                <button class="block p-3 rounded-lg font-semibold flex items-center justify-start flex-row w-[200px] gap-2 hover:bg-gray-700 mb-10">
-                                    <img class="w-6" src="../imagens/livros.png">
-                                    <span>Livros</span>
-                                </button>
-                            </a>
-                    </li>
-                </ul>
-                <div class="flex flex-col h-screen justify-end">
-                    <div class="border-t border-white/10 mb-10">
-                        <a class="block rounded-lg bg-[#4A0E0E] font-semibold hover:bg-[#370A0A] rounded-lg" href="../logout.php">
-                            <button class="flex items-center justify-center flex-row text-white font-bold p-1 w-full mt-10 rounded-lg h-[60px]">
-                                <span>Sair</span>
-                                <img class="w-6" src="../imagens/voltar.png">
-                            </button>
-                        </a>
-                    </div>
+        <!-- Sidebar -->
+        <aside class="w-64 bg-[#1E1814] text-white shadow-xl border-r border-[#4A3B31] flex-shrink-0">
+
+            <div class="flex items-center justify-center gap-2 p-6 text-2xl font-bold border-b border-slate-700">
+                <img class="w-16 rounded-2xl" src="../imagens/logo.png" alt="Logo">
+
+                <div class="flex flex-col">
+                    <span class="text-[#c9a84c]">Biblioteca</span>
+                    <span class="text-[#A67C00]">Nexus</span>
                 </div>
-            </nav>
-        </aside>
-        
-        <main class=" flex-1 p-10">
-            <header class="relative mb-10">
-                <img class="w-full h-[200px] rounded-3xl object-cover border border-[#3D2B1F]" src="../imagens/banner_categorias.png">     
-                <h1 class="absolute top-5 left-10 text-4xl font-extrabold text-slate-100 font-bold tracking-tight">Gerenciamento de <br> <span class="text-[#c9a84c]">Categorias</span></h1>
-                <span class="absolute top-[140px] left-10 text-gray-500">Visualize e gerencie o acervo da biblioteca.</span>
-            </header>
+            </div>
 
-        <div class="flex flex-row gap-10 mb-10">
-                <a href="criar_categoria.php">
-                    <button class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#064E3B] p-3 w-60 hover:bg-[#043A2B] border border-[#043A2B]">
-                        <img class="w-6" src="../imagens/adicionar.png">
-                        <span>Adicionar nova categoria</span>
-                    </button>
-                </a>
-        </div>
-    <table class="bg-[#1a1311] rounded-2xl text-center mb-10 w-full overflow-hidden text-[#F8FAFC] border-2 border-[#c9a84c]">
-        <tr class="bg-[#C59B27] text-[#0B0C10] font-bold border-2 border-[#c9a84c]">
-            <th class="py-3">ID</th>
-            <th class="py-3">Categoria</th>
-            <th class="py-3">Ações</th>
-        </tr>
-        <?php foreach ($categorias as $categoria): ?>
-        <tr class="border-b border-[#0B0C10] hover:bg-[#1E1814]">
-            <td class="py-2"><?= $categoria['id'] ?></td>
-            <td class="py-2"><?= $categoria['categoria'] ?></td>
-            <td class="py-2">
-                <div class="flex justify-center gap-2">
-                    <a href="editar_categoria.php?id=<?= $categoria['id'] ?>"><img class="w-5 " src="../imagens/editar.png"></a>
+            <nav class="flex flex-col justify-between h-[calc(100vh-112px)] px-4 py-6">
 
-                    <a href="excluir_categoria.php?id=<?= $categoria['id'] ?>" 
-                    onclick="return confirm('Tem certeza que deseja excluir este item?')">
+                <ul class="space-y-2">
 
-                    <img class="w-5 " src="../imagens/deletar.png">
+                    <li>
+                        <a href="categorias.php"
+                           class="flex items-center gap-2 p-3 rounded-lg bg-[#A67C00] font-semibold">
+                            <img class="w-6" src="../imagens/categorias.png" alt="Categorias">
+                            <span>Categorias</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../crud_alunos/alunos.php"
+                           class="flex items-center gap-2 p-3 rounded-lg font-semibold hover:bg-gray-700 transition">
+                            <img class="w-6" src="../imagens/alunos.png" alt="Alunos">
+                            <span>Alunos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../crud_livros/livros.php"
+                           class="flex items-center gap-2 p-3 rounded-lg font-semibold hover:bg-gray-700 transition">
+                            <img class="w-6" src="../imagens/livros.png" alt="Livros">
+                            <span>Livros</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Logout -->
+                <div class="pt-6 border-t border-white/10">
+                    <a href="../logout.php"
+                       class="flex items-center justify-center gap-2 h-[60px] rounded-lg bg-[#4A0E0E] hover:bg-[#370A0A] text-white font-bold transition">
+                        <span>Sair</span>
+                        <img class="w-6" src="../imagens/voltar.png" alt="Sair">
                     </a>
                 </div>
-            </td>
-            
-        </tr>
-        <?php endforeach; ?>        
-    </table>
 
+            </nav>
+        </aside>
+
+        <!-- Conteúdo -->
+        <main class="flex-1 p-10">
+
+            <!-- Banner -->
+            <header class="relative mb-10">
+
+                <video class="w-full h-[200px] rounded-3xl object-cover border-2 border-[#4A3B31]" autoplay loop>
+                    <source src="../videos/video_banner.mp4" type="video/mp4">
+                </video>
+
+                <div class="absolute inset-0 bg-black/60 rounded-3xl"></div>
+
+                <div class="absolute top-5 left-10">
+                    <h1 class="text-4xl font-extrabold text-slate-100 tracking-tight">
+                        Gerenciamento de <br>
+                        <span class="text-[#c9a84c]">Categorias</span>
+                    </h1>
+
+                    <p class="mt-3 text-gray-400">
+                        Visualize e gerencie o acervo da biblioteca.
+                    </p>
+                </div>
+
+            </header>
+
+            <!-- Botão adicionar -->
+            <div class="mb-10">
+                <a href="criar_categoria.php"
+                   class="inline-flex items-center gap-2 px-4 py-5 w-80 rounded-2xl bg-[#064E3B] hover:bg-[#043A2B] border border-[#043A2B] text-white font-bold transition">
+
+                    <img class="w-6" src="../imagens/adicionar.png" alt="Adicionar">
+                    <span>Adicionar nova categoria</span>
+                </a>
+            </div>
+
+            <!-- Tabela -->
+            <div class="overflow-hidden rounded-2xl border-2 border-[#c9a84c] bg-[#1a1311]">
+                <table class="w-full text-center text-[#F8FAFC]">
+
+                    <thead>
+                        <tr class="bg-[#C59B27] text-[#0B0C10] font-bold">
+                            <th class="py-3">ID</th>
+                            <th class="py-3">Categoria</th>
+                            <th class="py-3">Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach ($categorias as $categoria): ?>
+
+                            <tr class="border-b border-[#0B0C10] hover:bg-[#1E1814] transition">
+                                <td class="py-2">
+                                    <?= $categoria['id'] ?>
+                                </td>
+
+                                <td class="py-2">
+                                    <?= $categoria['categoria'] ?>
+                                </td>
+
+                                <td class="py-2">
+                                    <div class="flex justify-center gap-3">
+
+                                        <a href="editar_categoria.php?id=<?= $categoria['id'] ?>">
+                                            <img class="w-5 hover:scale-110 transition"
+                                                 src="../imagens/editar.png"
+                                                 alt="Editar">
+                                        </a>
+
+                                        <a href="excluir_categoria.php?id=<?= $categoria['id'] ?>"
+                                           onclick="return confirm('Tem certeza que deseja excluir este item?')">
+
+                                            <img class="w-5 hover:scale-110 transition"
+                                                 src="../imagens/deletar.png"
+                                                 alt="Excluir">
+                                        </a>
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                        <?php endforeach; ?>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </main>
+    </div>
 </body>
+
 </html>
