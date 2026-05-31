@@ -1,5 +1,6 @@
 <?php
 require "../conexao.php";
+require "../auth.php";
 ?>
 
 <!DOCTYPE html>

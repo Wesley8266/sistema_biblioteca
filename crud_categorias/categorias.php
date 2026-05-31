@@ -36,7 +36,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
 
                     <li>
                         <a href="categorias.php"
-                           class="flex items-center gap-2 p-3 rounded-lg bg-[#A67C00] font-semibold">
+                           class="flex items-center gap-2 p-3 rounded-left-2xl rounded-r-full bg-[#A67C00] font-semibold">
                             <img class="w-6" src="../imagens/categorias.png" alt="Categorias">
                             <span>Categorias</span>
                         </a>
@@ -44,7 +44,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
 
                     <li>
                         <a href="../crud_alunos/alunos.php"
-                           class="flex items-center gap-2 p-3 rounded-lg font-semibold hover:bg-gray-700 transition">
+                           class="flex items-center gap-2 p-3 rounded-r-full font-semibold hover:bg-gray-700 transition">
                             <img class="w-6" src="../imagens/alunos.png" alt="Alunos">
                             <span>Alunos</span>
                         </a>
@@ -52,7 +52,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
 
                     <li>
                         <a href="../crud_livros/livros.php"
-                           class="flex items-center gap-2 p-3 rounded-lg font-semibold hover:bg-gray-700 transition">
+                           class="flex items-center gap-2 p-3 rounded-r-full font-semibold hover:bg-gray-700 transition">
                             <img class="w-6" src="../imagens/livros.png" alt="Livros">
                             <span>Livros</span>
                         </a>
@@ -100,7 +100,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
             <!-- Botão adicionar -->
             <div class="mb-10">
                 <a href="criar_categoria.php"
-                   class="inline-flex items-center gap-2 px-4 py-5 w-80 rounded-2xl bg-[#064E3B] hover:bg-[#043A2B] border border-[#043A2B] text-white font-bold transition">
+                   class="inline-flex items-center gap-3 px-3 py-4 w-[275px] rounded-2xl bg-[#064E3B] hover:bg-[#043A2B] border border-[#043A2B] text-white font-bold transition">
 
                     <img class="w-6" src="../imagens/adicionar.png" alt="Adicionar">
                     <span>Adicionar nova categoria</span>
@@ -122,9 +122,9 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
                     <tbody>
                         <?php foreach ($categorias as $categoria): ?>
 
-                            <tr class="border-b border-[#0B0C10] hover:bg-[#1E1814] transition">
+                            <tr class="border-2 border-[#0B0C10] hover:bg-[#1E1814] transition">
                                 <td class="py-2">
-                                    <?= $categoria['id'] ?>
+                                    #<?= $categoria['id'] ?>
                                 </td>
 
                                 <td class="py-2">

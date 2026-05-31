@@ -22,8 +22,11 @@ require "conexao.php";
         </div>
 
     <div class="w-1/2 flex flex-col items-center justify-center rounded-3xl p-10 gap-6">
-        <h1 class="text-3xl text-center font-bold m-5 text-[#c9a84c]">LOGIN NA <br> <span class="text-[#A67C00]">BIBLIOTECA</span> </h1>
-        
+        <div class="flex flex-row items-center justify-center gap-2">
+            <img src="imagens/logo.png" class="w-20 rounded-2xl">
+            <h1 class="text-3xl text-center font-bold m-5 text-[#c9a84c]">LOGIN NA <br> <span class="text-[#A67C00]">BIBLIOTECA</span> </h1>
+        </div>
+
         <div class="flex flex-col gap-2">
             <div class ="flex flex-row items-center gap-2 text-white">
                 <img src="imagens/email.png" class="w-6 space-y-2 ">

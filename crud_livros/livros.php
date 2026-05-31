@@ -1,5 +1,6 @@
 <?php
 require "../conexao.php";
+require "../auth.php";
 $livros = $conn->query(" 
     SELECT 
     livros.id_livro, 
