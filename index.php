@@ -30,7 +30,7 @@ require "conexao.php";
         <div class="flex flex-col gap-2">
             <div class ="flex flex-row items-center gap-2 text-white">
                 <img src="imagens/email.png" class="w-6 space-y-2 ">
-                <span>Email:</span>
+                <span class="text-[#c9a84c]">Email:</span>
             </div>
                 <input type="text" name="email" placeholder="example@gmail.com" class="border-2 border-[#3D2B1F] focus:border-[#A67C00] focus:ring-1 focus:ring-[#A67C00] outline-none rounded-full p-4 w-[400px]" required >
         </div>
@@ -38,7 +38,7 @@ require "conexao.php";
         <div class="flex flex-col gap-2">
             <div class ="flex flex-row items-center gap-2 text-white">
                 <img src="imagens/senha.png" class="w-6">
-                <span>Senha:</span>
+                <span class="text-[#c9a84c]">Senha:</span>
             </div>
             <input type="password" name="senha" maxlength="10" placeholder="*****" class="border-2 border-[#3D2B1F] focus:border-[#A67C00] focus:ring-1 focus:ring-[#A67C00] outline-none rounded-full p-4 w-[400px]" required>
         </div>

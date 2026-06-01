@@ -19,7 +19,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
     <div class="flex min-h-screen">
 
         <!-- Sidebar -->
-        <aside class="w-64 bg-[#1E1814] text-white shadow-xl border-r border-[#4A3B31] flex-shrink-0">
+        <aside class="w-64 bg-[#1E1814] text-white shadow-xl border-r border-[#4A3B31] flex flex-col">
 
             <div class="flex items-center justify-center gap-2 p-6 text-2xl font-bold border-b border-slate-700">
                 <img class="w-16 rounded-2xl" src="../imagens/logo.png" alt="Logo">
@@ -30,7 +30,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
                 </div>
             </div>
 
-            <nav class="flex flex-col justify-between h-[calc(100vh-112px)] px-4 py-6">
+            <nav class="flex flex-col justify-between flex-1 px-4 py-6">
 
                 <ul class="space-y-2">
 
@@ -78,11 +78,11 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
             <!-- Banner -->
             <header class="relative mb-10">
 
-                <video class="w-full h-[200px] rounded-3xl object-cover border-2 border-[#4A3B31]" autoplay loop>
-                    <source src="../videos/video_banner.mp4" type="video/mp4">
+                <video class="w-full h-[200px] rounded-3xl object-cover border-2 border-[#4A3B31]" autoplay loop muted>
+                    <source src="../videos/banner_categorias.mp4" type="video/mp4">
                 </video>
 
-                <div class="absolute inset-0 bg-black/60 rounded-3xl"></div>
+                <div class="absolute inset-0 bg-black/80 rounded-3xl"></div>
 
                 <div class="absolute top-5 left-10">
                     <h1 class="text-4xl font-extrabold text-slate-100 tracking-tight">
@@ -91,7 +91,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
                     </h1>
 
                     <p class="mt-3 text-gray-400">
-                        Visualize e gerencie o acervo da biblioteca.
+                        Organize e gerencie as categorias que compõem o acervo da biblioteca.
                     </p>
                 </div>
 
@@ -122,7 +122,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
                     <tbody>
                         <?php foreach ($categorias as $categoria): ?>
 
-                            <tr class="border-2 border-[#0B0C10] hover:bg-[#1E1814] transition">
+                            <tr class="border-2 border-[#3D2B1F] hover:bg-[#1E1814] transition">
                                 <td class="py-2">
                                     #<?= $categoria['id'] ?>
                                 </td>

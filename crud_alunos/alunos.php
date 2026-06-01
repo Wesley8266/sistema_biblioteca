@@ -16,7 +16,7 @@ $dados = $conn->query("SELECT * FROM alunos_cadastrados")->fetchAll();
 <body class="bg-[#2D241E] antialiased">
     <div class="flex min-h-screen">
 
-        <aside class="w-64 bg-[#1E1814] text-white shadow-xl border-r border-[#4A3B31] flex-shrink-0">
+       <aside class="w-64 bg-[#1E1814] text-white shadow-xl border-r border-[#4A3B31] flex flex-col">
 
             <div class="flex items-center justify-center gap-2 p-6 text-2xl font-bold border-b border-slate-700">
                 <img class="w-16 rounded-2xl" src="../imagens/logo.png" alt="Logo">
@@ -27,7 +27,7 @@ $dados = $conn->query("SELECT * FROM alunos_cadastrados")->fetchAll();
                 </div>
             </div>
 
-            <nav class="flex flex-col justify-between h-[calc(100vh-112px)] px-4 py-6">
+           <nav class="flex flex-col justify-between flex-1 px-4 py-6">
                 <ul class="space-y-2">
 
                     <li>
@@ -57,8 +57,7 @@ $dados = $conn->query("SELECT * FROM alunos_cadastrados")->fetchAll();
                 </ul>
 
                 <div class="pt-6 border-t border-white/10">
-                    <a href="../logout.php"
-                       class="flex items-center justify-center gap-2 h-[60px] rounded-lg bg-[#4A0E0E] hover:bg-[#370A0A] text-white font-bold transition">
+                    <a href="../logout.php" class="w-full flex items-center justify-center gap-2 h-[60px] rounded-lg bg-[#4A0E0E] hover:bg-[#370A0A] text-white font-bold transition">
                         <span>Sair</span>
                         <img class="w-5" src="../imagens/voltar.png" alt="Sair">
                     </a>
@@ -74,7 +73,7 @@ $dados = $conn->query("SELECT * FROM alunos_cadastrados")->fetchAll();
                     <source src="../videos/banner_alunos.mp4" type="video/mp4">
                 </video>
 
-                <div class="absolute inset-0 bg-black/60 rounded-3xl"></div>
+                <div class="absolute inset-0 bg-black/80 rounded-3xl"></div>
 
                 <div class="absolute top-5 left-10">
                     <h1 class="text-4xl font-extrabold text-slate-100 tracking-tight">

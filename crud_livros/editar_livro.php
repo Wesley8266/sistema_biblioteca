@@ -24,40 +24,124 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
 </head>
+<body class="flex flex-col justify-content items-center bg-[#1E1814]"
+    style="background-image: url('../imagens/fundo_sistema.png'); background-size: cover;">
 
-<body class="flex flex-col justify-content items-center bg-gray-200" style="background-image: url('../imagens/fundo_sistema.png'); background-size: cover;">
-    <form action="" method="post" class="flex flex-col items-center justify-center gap-5 bg-white rounded-3xl m-20 p-10 shadow-2xl shadow-green-500 w-[400px]">
-        <h1 class="text-3xl text-center font-bold m-5 text-green-500 ">EDITAR LIVRO</h1>
+    <form action="processamento.php" method="post"
+        class="flex flex-col items-center justify-center gap-5 bg-[#1a1311] border-2 border-[#3D2B1F] rounded-2xl m-10 p-2 shadow-2xl w-[700px] text-[#F8FAFC]">
 
-            <label for="titulo">Título:</label>
-            <input type="text" name="titulo" id="titulo" placeholder="Título do livro" value="<?= $livro['titulo'] ?>" class="border-2 border-black rounded-3xl p-4 w-60" required >
-            <label for="autor">Autor:</label>
-            <input type="text" name="autor" id="autor" placeholder="Autor do livro" value="<?= $livro['autor'] ?>" class="border-2 border-black rounded-3xl p-4 w-60" required >
-            <label for="ano_publicacao">Ano de Publicação:</label>
-            <input type="text" name="ano_publicacao" id="ano_publicacao" placeholder="Ano de publicação" value="<?= $livro['ano_publicacao'] ?>" class="border-2 border-black rounded-3xl p-4 w-60" required >
-            <label for="id_categoria">Categoria:</label>
-            <select name="id_categoria" id="id_categoria" class="border-2 border-black rounded-3xl p-4 w-60" required>
-                <option value="">Selecione uma categoria</option>
-                <?php
-                $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
-                foreach ($categorias as $categoria) {
-                    echo "<option value='{$categoria['id']}' " . ($categoria['id'] == $livro['id_categoria'] ? 'selected' : '') . ">{$categoria['categoria']}</option>";
-                }
-                ?>
-            </select>
-        <button class="text-white rounded-3xl bg-green-400 p-4 w-60 hover:bg-green-500" type="submit">Salvar</button>
-    </form>
-        <a href="livros.php">
-            <button class="text-white rounded-3xl bg-red-400 p-4 w-60 hover:bg-red-500 mb-10">
-            Sair
+            <div class="flex flex-col items-center">
+                <img class="w-[60px] h-[60px] bg-[#2D241E] p-2 rounded-full" src="../imagens/add_book.png">
+                <h1 class="text-3xl text-center font-bold text-white">EDITAR LIVRO</h1>
+            </div>
+
+        <div class="flex flex-row gap-20">
+
+            <div class="flex flex-col gap-5">   
+
+                <div class="flex flex-row gap-2">
+                    <label for="titulo_livro">Título:</label>
+                </div>
+
+                <input
+                    type="text"
+                    name="titulo"
+                    id="titulo_livro"
+                    placeholder="Título do livro"
+                    class="border-2 border-black rounded-3xl p-4 w-60 text-white bg-[#1E1814]"
+                    value="<?= $livro['titulo'] ?>"
+                    required>
+
+                <div class="flex flex-row gap-2">
+                    <label for="autor_livro">Autor:</label>
+                </div>
+
+                <input
+                    type="text"
+                    name="autor"
+                    id="autor_livro"
+                    placeholder="Autor do livro"
+                    class="border-2 border-black rounded-3xl p-4 w-60 text-white bg-[#1E1814]"
+                    value="<?= $livro['autor'] ?>"
+                    required>
+
+            </div>
+
+            <div class="flex flex-col gap-5">
+
+                <div class="flex flex-row gap-2">
+                    <label for="ano_publicacao">Ano de Publicação:</label>
+                </div>
+
+                <input
+                    type="number"
+                    name="ano_publicacao"
+                    id="ano_publicacao"
+                    placeholder="Ano de publicação"
+                    class="border-2 border-black rounded-3xl p-4 w-60 text-white bg-[#1E1814]"
+                    value="<?= $livro['ano_publicacao'] ?>"
+                    required>
+
+                <div class="flex flex-row gap-2">
+                    <label for="id_categoria">Categoria:</label>
+                </div>
+
+                <select
+                    name="id_categoria"
+                    id="id_categoria"
+                    class="border-2 border-black rounded-3xl p-4 w-60 text-white bg-[#1E1814]"
+                    required>
+
+                    <option value="" class="text-white bg-[#1E1814]">Selecione uma categoria</option>
+
+                    <?php
+                    $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
+
+                    foreach ($categorias as $categoria) {
+                        echo "<option class='text-white bg-[#1E1814]' value='{$categoria['id']}' " . ($livro['id_categoria'] == $categoria['id'] ? 'selected' : '') . ">{$categoria['categoria']}</option>";
+                    }
+                    ?>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="flex flex-row justify-content items-center gap-5 mb-5 border-t border-[#3D2B1F] pt-5">
+
+            <button
+                type="submit"
+                class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#A67C00] hover:bg-[#8A6600] hover p-3 w-[280px]">
+
+                <span>Salvar</span>
+                <img class="w-6" src="../imagens/salvar.png">
+
             </button>
-        </a>
+
+            <div class="flex flex-row justify-content items-center gap-5">
+
+                <a
+                    href="livros.php"
+                    class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#4A0E0E] p-3 w-[280px] hover:bg-[#370A0A]">
+
+                    <span>Voltar</span>
+                    <img class="w-5 ml-2" src="../imagens/voltar.png">
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </form>
 </body>
+
 </html>
