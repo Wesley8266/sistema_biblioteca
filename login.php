@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if($user){
         $_SESSION['user_email'] = $user['email'];
-        header("location: ./crud_categorias/categorias.php");
+        header("location: ./dashboard/dashboard.php");
         exit();
     }else{
         header("location: index.php?msg=Login ou senha incorretos");

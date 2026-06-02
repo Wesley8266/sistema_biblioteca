@@ -43,6 +43,14 @@ $livros = $conn->query("
             <nav class="flex flex-col justify-between flex-1 px-4 py-6">
 
                 <ul class="space-y-2">
+                    <li>
+                        <a href="../dashboard/dashboard.php"
+                           class="flex items-center gap-2 p-3 rounded-left-2xl rounded-r-full hover:bg-gray-700 font-semibold">
+                            <img class="w-6" src="../imagens/dashboard.png" alt="Dashboard">
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
 
                     <li>
                         <a href="../crud_categorias/categorias.php"
