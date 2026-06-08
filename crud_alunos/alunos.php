@@ -1,7 +1,7 @@
 <?php
 require "../conexao.php";
 require "../auth.php";
-$dados = $conn->query("SELECT * FROM alunos_cadastrados")->fetchAll();
+$dados = $conn->query("SELECT * FROM alunos")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +107,7 @@ $dados = $conn->query("SELECT * FROM alunos_cadastrados")->fetchAll();
                     <thead>
                         <tr class="bg-[#C59B27] text-[#0B0C10] font-bold">
                             <th class="py-3">ID</th>
-                            <th class="py-3">Nome e Contato</th>
+                            <th class="py-3 text-left px-4">Nome e Contato</th>
                             <th class="py-3">Turma</th>
                             <th class="py-3">Data de Nascimento</th>
                             <th class="py-3">Ações</th>
@@ -116,12 +116,12 @@ $dados = $conn->query("SELECT * FROM alunos_cadastrados")->fetchAll();
 
                     <tbody>
                         <?php foreach ($dados as $aluno): ?>
-                            <tr class="border-2 border-[#3D2B1F] hover:bg-[#1E1814] transition">
+                            <tr class="border-b border-[#3D2B1F] hover:bg-[#1E1814] transition">
 
                                 <td>#<?= $aluno['id'] ?></td>
 
-                                <td>
-                                    <div class="flex flex-col items-center justify-center align-items gap-3">
+                                <td class="px-4">
+                                    <div class="flex flex-col justify-center align-items gap-3">
                                         <div class="flex items-center gap-2">
                                             <img class="w-5" src="../imagens/pessoa.png" alt="Aluno">
                                             <span><?= $aluno['nome_aluno'] ?></span>

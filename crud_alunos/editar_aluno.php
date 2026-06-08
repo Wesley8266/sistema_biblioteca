@@ -3,7 +3,7 @@ require "../conexao.php";
 require "../auth.php";
 $id = $_GET['id'];
 
-$editar = $conn->prepare("SELECT * FROM alunos_cadastrados WHERE id = ?");
+$editar = $conn->prepare("SELECT * FROM alunos WHERE id = ?");
 $editar->execute([$id]);
 $aluno = $editar->fetch();
 
@@ -14,11 +14,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $turma = $_POST["turma"];
     $data_nascimento = $_POST["data_nascimento"];
 
-    $edit = $conn->prepare("UPDATE alunos_cadastrados SET nome_aluno = ?, email = ?, telefone = ?, turma = ?, data_nascimento = ? WHERE id = ?");
+    $edit = $conn->prepare("UPDATE alunos SET nome_aluno = ?, email = ?, telefone = ?, turma = ?, data_nascimento = ? WHERE id = ?");
     $edit->execute([$nome_aluno, $email, $telefone, $turma, $data_nascimento, $id]);
 
-    header("location: alunos.php");
-    exit;
+    if(empty($nome_aluno) || empty($email) || empty($telefone) || empty($turma) || empty($data_nascimento)){
+        header("location: editar_aluno.php?id=$id&msg=Preencha todos os campos!");
+        exit();
+    } else {
+        header("location: alunos.php");
+        exit();
+    }
 }
 
 ?>
@@ -28,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Aluno</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -38,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         class="flex flex-col items-center justify-center gap-5 bg-[#1a1311] border-2 border-[#3D2B1F] rounded-2xl m-10 p-2 shadow-2xl w-[900px] text-[#F8FAFC]">
 
         <div class="flex flex-col items-center mt-5">
-            <img class="w-[60px] h-[60px] bg-[#2D241E] p-4 rounded-full" src="../imagens/adicionar_aluno.png">
+            <img class="w-[60px] h-[60px] bg-[#2D241E] p-4 rounded-full" src="../imagens/editar_aluno.png">
             <h1 class="text-3xl text-center font-bold m-5 text-[#F8FAFC]">
             EDITAR INFORMAÇÕES DO ALUNO
             </h1>
@@ -109,6 +114,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     required>
             </div>
         </div>
+        <?php
+            if(isset($_GET['msg'])){
+                echo "<p class='text-white text-center font-bold'>" . $_GET['msg'] . "</p>";
+            }
+        ?>
         <br>
                 <div class="flex flex-row justify-content items-center gap-5 mb-5 border-t border-[#3D2B1F] pt-5">
                     <button type="submit" class="flex items-center justify-center flex-row text-white font-bold rounded-2xl bg-[#A67C00] hover:bg-[#8A6600] hover p-3 w-[400px]">

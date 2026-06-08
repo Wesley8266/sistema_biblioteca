@@ -8,21 +8,27 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')){
     $turma = $_POST["turma"];
     $data_nascimento = $_POST["data_nascimento"];
 
-    if(empty($nome_aluno)){
-        echo "Preencha o campo nome";
+    if(empty($nome_aluno) || empty($email) || empty($telefone) || empty($turma) || empty($data_nascimento)){
+        header("location: adicionar_aluno.php?msg=Preencha todos os campos!");
+        exit();
     }else{
 
-    $add = $conn->prepare("INSERT INTO alunos_cadastrados (nome_aluno, email, telefone, turma, data_nascimento)
-    VALUES (:nome_aluno, :email, :telefone, :turma, :data_nascimento)");
-    $add->bindValue(':nome_aluno', $nome_aluno);
-    $add->bindValue(':email', $email);
-    $add->bindValue(':telefone', $telefone);
-    $add->bindValue(':turma', $turma);
-    $add->bindValue(':data_nascimento', $data_nascimento);
-    $add->execute();
+        $add = $conn->prepare("INSERT INTO alunos (nome_aluno, email, telefone, turma, data_nascimento)
+        VALUES (:nome_aluno, :email, :telefone, :turma, :data_nascimento)");
+        $add->bindValue(':nome_aluno', $nome_aluno);
+
+        $add->bindValue(':email', $email);
+
+        $add->bindValue(':telefone', $telefone);
+
+        $add->bindValue(':turma', $turma);
+
+        $add->bindValue(':data_nascimento', $data_nascimento);
+
+        $add->execute();
     
-    header("location: alunos.php");
-    }
+        header("location: alunos.php");
+        }
 }
 ?>
 

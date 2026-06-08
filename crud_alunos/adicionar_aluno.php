@@ -9,7 +9,7 @@ require "../auth.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Adicionar Aluno</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -110,8 +110,11 @@ require "../auth.php";
             </div>
 
         </div>
-
-        <br>
+        <?php
+            if(isset($_GET['msg'])){
+                echo "<p class='text-white  text-center font-bold'>" . $_GET['msg'] . "</p>";
+            }
+        ?>
 
         <div class="flex flex-row justify-content items-center gap-5 mb-5 border-t border-[#3D2B1F] pt-5">
 

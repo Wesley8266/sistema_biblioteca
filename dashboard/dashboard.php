@@ -8,12 +8,12 @@ $totalLivros = $livros->fetch()['total'];
 $categorias= $conn->query("SELECT COUNT(*) as total FROM categorias");
 $totalCategorias = $categorias->fetch()['total'];
 
-$alunos= $conn->query("SELECT COUNT(*) as total FROM alunos_cadastrados");
+$alunos= $conn->query("SELECT COUNT(*) as total FROM alunos");
 $totalAlunos = $alunos->fetch()['total'];
 
 $Consulta_Alunos= $conn->query("
     SELECT id, nome_aluno
-    FROM alunos_cadastrados
+    FROM alunos
     ORDER BY id DESC
     LIMIT 4
 ");
@@ -36,7 +36,7 @@ $ultimosLivros = $Consulta_Livros->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#2D241E] antialiased">
@@ -167,15 +167,15 @@ $ultimosLivros = $Consulta_Livros->fetchAll();
     <table class="w-full text-left overflow-hidden rounded-2xl border-2 border-[#c9a84c] bg-[#1a1311]">
         <thead>
             <tr class="bg-[#C59B27] text-[#0B0C10] font-bold">
-                <th class="py-3">ID</th>
-                <th class="py-3">Nome</th>
+                <th class="p-4">ID</th>
+                <th class="p-4">Nome</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($ultimosAlunos as $aluno): ?>
                 <tr class="border-2 border-[#3D2B1F] hover:bg-[#1E1814]">
-                    <td class=" p-2 text-white"><?= $aluno['id'] ?></td>
-                    <td class=" p-2 text-white"><?= $aluno['nome_aluno'] ?></td>
+                    <td class="p-4 text-white"><?= $aluno['id'] ?></td>
+                    <td class="p-4 text-white"><?= $aluno['nome_aluno'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -188,16 +188,16 @@ $ultimosLivros = $Consulta_Livros->fetchAll();
 
     <table class="w-full text-left overflow-hidden rounded-2xl border-2 border-[#c9a84c] bg-[#1a1311]">
         <thead>
-            <tr class="bg-[#C59B27] text-[#0B0C10] font-bold">
-                <th class="py-3">ID</th>
-                <th class="py-3">Nome</th>
+            <tr class="bg-[#C59B27] text-[#0B0C10] font-bold p-4">
+                <th class="p-4">ID</th>
+                <th class="p-4">Nome</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($ultimosLivros as $livro): ?>
                 <tr class="border-2 border-[#3D2B1F] hover:bg-[#1E1814]">
-                    <td class=" p-2 text-white"><?= $livro['id_livro'] ?></td>
-                    <td class=" p-2 text-white"><?= $livro['titulo'] ?></td>
+                    <td class="p-4 text-white"><?= $livro['id_livro'] ?></td>
+                    <td class="p-4 text-white"><?= $livro['titulo'] ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

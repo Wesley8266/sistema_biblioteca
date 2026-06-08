@@ -123,23 +123,23 @@ $livros = $conn->query("
             <div class="overflow-hidden rounded-2xl border-2 border-[#c9a84c] bg-[#1a1311]">
                 <table class="w-full text-center text-[#F8FAFC]">
 
-                    <thead>
+        <thead>
         <tr class="bg-[#C59B27] text-[#0B0C10] font-bold">
-            <th class="py-3">ID LIVRO</th>
-            <th class="py-3">TITULO</th>
-            <th class="py-3">AUTOR</th>
-            <th class="py-3">ANO DE PUBLICAÇÃO</th>
-            <th class="py-3">CATEGORIA</th>
-            <th class="py-3">AÇÕES</th>
+                <th class="py-3">ID LIVRO</th>
+                <th class="py-3 text-left px-2">TITULO</th>
+                <th class="py-3 text-left px-2">AUTOR</th>
+                <th class="py-3">ANO DE PUBLICAÇÃO</th>
+                <th class="py-3 text-left px-2">CATEGORIA</th>
+                <th class="py-3">AÇÕES</th>
         </tr>
 
         <?php foreach ($livros as $livro): ?>
-        <tr class="border-2 border-[#3D2B1F] hover:bg-[#1E1814] transition">
-            <td class="py-2"><?= $livro['id_livro'] ?></td>
-            <td class="py-2"><?= $livro['titulo'] ?></td>
-            <td class="py-2"><?= $livro['autor'] ?></td>
-            <td class="py-2"><?= $livro['ano_publicacao'] ?></td>
-            <td class="py-2"><?= $livro['id_categoria'] ?></td>
+        <tr class="border-b border-[#3D2B1F] hover:bg-[#1E1814] transition">
+            <td class="py-2">#<?= $livro['id_livro'] ?></td>
+            <td class="py-2 text-left px-2"><?= $livro['titulo'] ?></td>
+            <td class="py-2 text-left px-2"><?= $livro['autor'] ?></td>
+            <td class="py-2 "><?= $livro['ano_publicacao'] ?></td>
+            <td class="py-2 text-left px-2"><?= $livro['id_categoria'] ?></td>
             <td>
                 <div class="flex justify-center gap-2">
                     <a href="editar_livro.php?id=<?= $livro['id_livro'] ?>"><img class="w-5 " src="../imagens/editar.png"></a>

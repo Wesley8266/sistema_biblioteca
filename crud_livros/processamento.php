@@ -8,8 +8,9 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST')){
     $ano_publicacao = $_POST["ano_publicacao"];
     $id_categoria = $_POST["id_categoria"];
 
-    if(empty($id_categoria)){
-        echo "Preencha o campo da categoria";
+    if(empty($id_categoria) || empty($titulo) || empty($autor) || empty($ano_publicacao)){
+        header("location: adicionar_livro.php?msg=Preencha todos os campos");
+        exit();
     }else{
 
     $add = $conn->prepare("INSERT INTO livros (titulo, autor, ano_publicacao, id_categoria) VALUES (:titulo, :autor, :ano_publicacao, :id_categoria)");

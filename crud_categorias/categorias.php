@@ -108,7 +108,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
             <!-- Botão adicionar -->
             <div class="mb-10">
                 <a href="criar_categoria.php"
-                   class="inline-flex items-center gap-3 px-3 py-4 w-[275px] rounded-2xl bg-[#064E3B] hover:bg-[#043A2B] border border-[#043A2B] text-white font-bold transition">
+                   class="inline-flex items-center gap-2 px-4 py-3 px-6 rounded-2xl bg-[#064E3B] hover:bg-[#043A2B] text-white font-bold transition">
 
                     <img class="w-6" src="../imagens/adicionar.png" alt="Adicionar">
                     <span>Adicionar nova categoria</span>
@@ -122,7 +122,7 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
                     <thead>
                         <tr class="bg-[#C59B27] text-[#0B0C10] font-bold">
                             <th class="py-3">ID</th>
-                            <th class="py-3">Categoria</th>
+                            <th class="py-3 text-left px-4">Categoria</th>
                             <th class="py-3">Ações</th>
                         </tr>
                     </thead>
@@ -130,16 +130,16 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
                     <tbody>
                         <?php foreach ($categorias as $categoria): ?>
 
-                            <tr class="border-2 border-[#3D2B1F] hover:bg-[#1E1814] transition">
-                                <td class="py-2">
+                            <tr class="border-b border-[#3D2B1F] hover:bg-[#1E1814] transition">
+                                <td class="py-4">
                                     #<?= $categoria['id'] ?>
                                 </td>
 
-                                <td class="py-2">
+                                <td class="py-2 text-left px-4">
                                     <?= $categoria['categoria'] ?>
                                 </td>
 
-                                <td class="py-2">
+                                <td class="py- ">
                                     <div class="flex justify-center gap-3">
 
                                         <a href="editar_categoria.php?id=<?= $categoria['id'] ?>">

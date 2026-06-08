@@ -14,18 +14,16 @@ require "conexao.php";
     
 <div class="flex items-center justify-center min-h-screen">
 
-<div class="w-[1200px] h-[600px] rounded-3xl flex overflow-hidden shadow-2xl hover:shadow-2xl hover:shadow-[#1A1410] transition-all border-2 border-[#4A3B31]">
+<div class="w-[1200px] h-[600px] rounded-3xl flex overflow-hidden shadow-2xl hover:shadow-2xl hover:shadow-[#1A1410] transition-all border-2 border-[#A67C00]">
     
     <form action="login.php" method="post" class="flex justify-content items-center bg-[#1E1814] rounded-3xl mb-20 gap-4 rounded-3xl w-full h-screen hover:translate-y-[-5px] transition-all">
-        <div class="w-1/2 h-full flex items-center justify-center overflow-hidden">
+        <div class="w-1/2 h-full flex items-center justify-center overflow-hidden border-r-2 border-[#A67C00]">
             <img src="imagens/img_inicial.png" class="h-full w-full object-cover rounded-l-3xl">
         </div>
 
     <div class="w-1/2 flex flex-col items-center justify-center rounded-3xl p-10 gap-6">
-        <div class="flex flex-row items-center justify-center gap-2">
-            <img src="imagens/logo.png" class="w-20 rounded-2xl">
+
             <h1 class="text-3xl text-center font-bold m-5 text-[#c9a84c]">LOGIN NA <br> <span class="text-[#A67C00]">BIBLIOTECA</span> </h1>
-        </div>
 
         <div class="flex flex-col gap-2">
             <div class ="flex flex-row items-center gap-2 text-white">
