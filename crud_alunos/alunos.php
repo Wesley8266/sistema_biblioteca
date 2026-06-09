@@ -62,9 +62,10 @@ $dados = $conn->query("SELECT * FROM alunos")->fetchAll();
                 </ul>
 
                 <div class="pt-6 border-t border-white/10">
-                    <a href="../logout.php" class="w-full flex items-center justify-center gap-2 h-[60px] rounded-lg bg-[#4A0E0E] hover:bg-[#370A0A] text-white font-bold transition">
+                    <a href="../logout.php"
+                       class="flex items-center justify-center gap-2 h-[60px] rounded-lg bg-[#4A0E0E] hover:bg-[#370A0A] text-white font-bold transition">
                         <span>Sair</span>
-                        <img class="w-5" src="../imagens/voltar.png" alt="Sair">
+                        <img class="w-6" src="../imagens/voltar.png" alt="Sair">
                     </a>
                 </div>
             </nav>
