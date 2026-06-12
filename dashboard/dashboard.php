@@ -189,8 +189,8 @@ $ultimosLivros = $Consulta_Livros->fetchAll();
     <table class="w-full text-left overflow-hidden rounded-2xl border-2 border-[#c9a84c] bg-[#1a1311]">
         <thead>
             <tr class="bg-[#C59B27] text-[#0B0C10] font-bold p-4">
-                <th class="p-4">ID</th>
-                <th class="p-4">Nome</th>
+                <th class="p-4">ID livro</th>
+                <th class="p-4">Titulo</th>
             </tr>
         </thead>
         <tbody>
