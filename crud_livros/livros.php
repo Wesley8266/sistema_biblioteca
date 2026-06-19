@@ -126,7 +126,7 @@ $livros = $conn->query("
         <thead>
         <tr class="bg-[#C59B27] text-[#0B0C10] font-bold">
                 <th class="py-3">ID LIVRO</th>
-                <th class="py-3 text-left px-2">TITULO</th>
+                <th class="py-3 text-left px-2">TÍTULO</th>
                 <th class="py-3 text-left px-2">AUTOR</th>
                 <th class="py-3">ANO DE PUBLICAÇÃO</th>
                 <th class="py-3 text-left px-2">CATEGORIA</th>

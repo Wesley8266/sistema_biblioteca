@@ -12,9 +12,75 @@ require "../auth.php";
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body class="flex flex-col justify-content items-center bg-[#2D241E]">
+<body class="bg-[#2D241E] antialiased">
+    <div class="flex min-h-screen">
 
-    <form action="processamento.php" method="post" class="flex flex-col items-center justify-center gap-5 bg-[#1a1311] border-2 border-[#3D2B1F] rounded-3xl m-20 p-10 shadow-2xl w-[600px] h-[450px] space-y-6">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-[#1E1814] text-white shadow-xl border-r border-[#4A3B31] flex flex-col">
+
+            <div class="flex items-center justify-center gap-2 p-6 text-2xl font-bold border-b border-slate-700">
+                <img class="w-16 rounded-2xl" src="../imagens/logo.png" alt="Logo">
+
+                <div class="flex flex-col">
+                    <span class="text-[#c9a84c]">Biblioteca</span>
+                    <span class="text-[#A67C00]">Nexus</span>
+                </div>
+            </div>
+
+            <nav class="flex flex-col justify-between flex-1 px-4 py-6">
+
+                <ul class="space-y-2">
+
+                    <li>
+                        <a href="../dashboard/dashboard.php"
+                           class="flex items-center gap-2 p-3 rounded-left-2xl rounded-r-full hover:bg-gray-700 font-semibold">
+                            <img class="w-6" src="../imagens/dashboard.png" alt="Dashboard">
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="categorias.php"
+                           class="flex items-center gap-2 p-3 rounded-left-2xl rounded-r-full bg-[#A67C00] font-semibold">
+                            <img class="w-6" src="../imagens/categorias.png" alt="Categorias">
+                            <span>Categorias</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../crud_alunos/alunos.php"
+                           class="flex items-center gap-2 p-3 rounded-r-full font-semibold hover:bg-gray-700 transition">
+                            <img class="w-6" src="../imagens/alunos.png" alt="Alunos">
+                            <span>Alunos</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../crud_livros/livros.php"
+                           class="flex items-center gap-2 p-3 rounded-r-full font-semibold hover:bg-gray-700 transition">
+                            <img class="w-6" src="../imagens/livros.png" alt="Livros">
+                            <span>Livros</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+                <!-- Logout -->
+                <div class="pt-6 border-t border-white/10">
+                    <a href="../logout.php"
+                       class="flex items-center justify-center gap-2 h-[60px] rounded-lg bg-[#4A0E0E] hover:bg-[#370A0A] text-white font-bold transition">
+                        <span>Sair</span>
+                        <img class="w-6" src="../imagens/voltar.png" alt="Sair">
+                    </a>
+                </div>
+
+            </nav>
+        </aside>
+
+        <!-- Conteúdo -->
+    <main class="flex-1 flex items-center justify-center p-10">
+
+        <form action="processamento.php" method="post" class="flex flex-col items-center justify-center gap-5 bg-[#1a1311] border-2 border-[#3D2B1F] rounded-3xl p-10 shadow-2xl w-[600px] h-[450px] space-y-6">
             <div class="flex flex-col items-center">
                 <img class="w-[40px] h-[40px] bg-[#2D241E] p-2 rounded-full" src="../imagens/adicionar.png">
                 <h1 class="text-3xl text-center font-bold text-white">CRIAR CATEGORIA</h1>
@@ -46,6 +112,7 @@ require "../auth.php";
                         </a>
                     </div>
                 </div>
-    </form>
+        </form>
+    </main>
 </body>
 </html>

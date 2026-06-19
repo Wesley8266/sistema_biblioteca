@@ -116,6 +116,12 @@ $categorias = $conn->query("SELECT * FROM categorias")->fetchAll();
             </div>
 
             <!-- Tabela -->
+             <?php if(isset($_GET['msg'])): ?>
+                <div class="bg-red-900 text-white p-3 rounded-lg mb-4">
+                    <?= htmlspecialchars($_GET['msg']) ?>
+                </div>
+            <?php endif; ?>
+            
             <div class="overflow-hidden rounded-2xl border-2 border-[#c9a84c] bg-[#1a1311]">
                 <table class="w-full text-center text-[#F8FAFC]">
 
